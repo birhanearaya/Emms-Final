@@ -1,0 +1,58 @@
+
+.Sidebar{
+  padding: 20px;
+  min-width: 280px;
+  background: #363A48;
+  box-shadow: 0px 0px 31px 0px rgba(136, 148, 164, 0.30);
+}
+.logo{
+  height: 100px;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.SidebarList .SidebarItem, .SidebarLogout{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  list-style: none;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.SidebarLogout{
+  margin-top: 180%;
+}
+.SidebarItem .SidebarItemIcon, .SidebarLogout .SidebarItemIcon{
+  flex: 30%;
+  display: grid;
+  place-items: center;  
+}
+.SidebarItem .SidebarItemTitle, .SidebarLogout .SidebarItemTitle{
+ flex: 70%;
+}
+.SidebarList .SidebarItem:hover{
+  cursor: pointer;
+  height: 50px;
+  background-color: #21232b;
+  transition: ease-in;
+  border-radius: 5px;
+}
+.SidebarList .SidebarLogout:hover{
+  cursor: pointer;
+  height: 50px;
+  background-color: #21232b;
+  transition: ease-in;
+  border-radius: 5px;
+}
+.SidebarList #active{
+  width: auto;
+  border-radius: 5px;
+  background: #3199F3;
+}
