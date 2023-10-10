@@ -1,8 +1,11 @@
 import '../index.css'
+import { Table } from '../components/Table'
+import { TableTitleAndApproveRejectButtons } from '../components/TableActionButtons';
 export const Approvals = () => {
   return <>
   <div className="PageContainer">
-    <h1>THIS IS THE APPROVALS PAGE</h1>
+    <TableTitleAndApproveRejectButtons/>
+    <Table/>  
   </div>
 </>
 };

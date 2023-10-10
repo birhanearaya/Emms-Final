@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-function Modal({setOpenModal}) {
+function AddEqModal({setOpenEqpmntModal}) {
         const [ opName, setOpName] = useState('');
         const [ oPType, setOpType] = useState('');
         const [ equipment, setEquipmet] = useState('');
@@ -11,10 +11,8 @@ function Modal({setOpenModal}) {
 
         const handleSubmit = (e) =>{
             e.preventDefault()
-            
             const registration ={opName,oPType,equipment,equipmentID,remark}
-            console.log(registration);
-
+            console.log(registration); //This is where the write to DB will go
         }
 
         return (
@@ -27,7 +25,7 @@ function Modal({setOpenModal}) {
                         {/* Modal Header */}
                         <div className='m5 w-full h-10 border-b'>
                             <h1 className='float-left text-xl font-extrabold'>Add new equipment maintenance registration</h1>
-                            <button className='float-right' onClick={()=> setOpenModal(false)}><FontAwesomeIcon className=' text-red-500 w-7 h-7' icon={faXmarkCircle}/></button>
+                            <button className='float-right' onClick={()=> setOpenEqpmntModal(false)}><FontAwesomeIcon className=' text-red-500 w-7 h-7' icon={faXmarkCircle}/></button>
                         </div>
                         
                         <div className='w-full m5'>
@@ -78,4 +76,4 @@ function Modal({setOpenModal}) {
           )
     }
 
-export default Modal
+export default AddEqModal
