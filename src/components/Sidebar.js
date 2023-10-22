@@ -27,7 +27,7 @@ function Sidebar() {
         <li
           className="SidebarLogout"
           onClick={() => {
-            window.location.pathname = "/Login";
+            window.location.pathname = "/login";
           }}
         >
           <FontAwesomeIcon className="SidebarItemIcon" icon= {faSignOut}/>

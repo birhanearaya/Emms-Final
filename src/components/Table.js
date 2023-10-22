@@ -1,5 +1,4 @@
-import React 
-from "react";
+import React from "react";
 import { useTable, usePagination} from "react-table";
 import eqpmnt_reg from ".././././emdb.json";
 import { MyColumns } from "./MyColumns";
@@ -7,17 +6,6 @@ import { MyColumns } from "./MyColumns";
 
 
 export const Table = () => {
-  // const [column, setColumn] = useState();
-  // const [record, setRecord] = useState();
-
-  // useEffect(()=>{
-  //   fetch('http://localhost:8000/eqpmnt_reg')
-  //   .then(res => res.json())
-  //   .then(data=>{
-  //     setColumn(React.useMemo(() => eqpmnt_reg,[]));
-  //     setRecord(data.eqpmnt_reg)
-  //   })
-  // },[]);
 
     const data = React.useMemo(() => eqpmnt_reg /*this is where the API goes*/, []);
     const columns =  React.useMemo(() => MyColumns,[]/*Column titles*/);

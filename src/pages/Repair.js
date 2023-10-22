@@ -1,9 +1,12 @@
 import '../index.css'
+import { Table } from '../components/Table'; 
+import {TableTitleAndAdmitRejectButtons} from '../components/TableActionButtons'
 export const Repair = () => {
   return (
     <>
       <div className="PageContainer">
-        <h1>THIS IS THE REPAIR PAGE</h1>
+        <TableTitleAndAdmitRejectButtons/>
+        <Table/>  
       </div>
     </>
   );
