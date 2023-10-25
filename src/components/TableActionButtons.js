@@ -4,7 +4,7 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import AddEqModal from './AddEqModal';
 import ApprovalsModal from './ApprovalsModal';
-import RepairModal from './ApprovalsModal';
+import RepairModal from './RepairModal';
 
 
 
@@ -29,21 +29,21 @@ export const TableTitleAndAddButton = () => {
         )
     }
 
-export const TableTitleAndAdmitRejectButtons = () => {
-    const [openApprovalsModal, setApprovalsModal] = useState(false);
+export const TableTitleAndApproveRejectButtons = () => {
+    const [openApprovalsModal, setOpenApprovalsModal] = useState(false);
     return(
         <>  
             {/* Title and add new EM section */}
                 <div className="bg-blue-600">
                     <div className="float-left inline-flex flex-row">
-                        <h3 className="text-xl font-bold">Repair equipment maintenance</h3>
+                        <h3 className="text-xl font-bold">Equipment maintenance approvals</h3>
                         <p className="text-base text-center text-blue-500 font-bold ml-3 pl-5 pr-5 pt-0.5 bg-blue-50 rounded-3xl">{}290 in total</p>
                     </div>
                     <div className="float-right mb-5">
-                        <button className="mr-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=> setApprovalsModal(true)}>
+                        <button className="mr-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=> setOpenApprovalsModal(true)}>
                             <FontAwesomeIcon  className="pr-3" icon= {faBars}/> Admit / Reject 
                         </button>
-                        {openApprovalsModal && <ApprovalsModal setOpenActionModal = {setApprovalsModal}/>}
+                        {openApprovalsModal && <ApprovalsModal setOpenApprovalsModal = {setOpenApprovalsModal}/>}
                     </div>
                 </div>
 
@@ -52,14 +52,14 @@ export const TableTitleAndAdmitRejectButtons = () => {
     }
 
 
-export const TableTitleAndApproveRejectButtons = () => {
+export const TableTitleAndAdmitRejectButtons = () => {
     const [openRepairModal, setOpenRepairModal] = useState(false);
     return(
         <>  
             {/* Title and add new EM section */}
                 <div className="bg-blue-600">
                     <div className="float-left inline-flex flex-row">
-                        <h3 className="text-xl font-bold">Equipment maintenance registration</h3>
+                        <h3 className="text-xl font-bold">Equipment maintenance shop</h3>
                         <p className="text-base text-center text-blue-500 font-bold ml-3 pl-5 pr-5 pt-0.5 bg-blue-50 rounded-3xl">{}290 in total</p>
                     </div>
                     <div className="float-right mb-5">

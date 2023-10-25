@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
-function ApprovalsModal({setOpenActionModal}) {
+function ApprovalsModal({setOpenApprovalsModal}) {
         const [ remark, setRemark] = useState('');
 
         const handleSubmit = (e) =>{
@@ -19,8 +19,8 @@ function ApprovalsModal({setOpenActionModal}) {
                     <div className='w-full h-full rounded-xl'>
                         {/* Modal Header */}
                         <div className='m5 w-full h-10 border-b'>
-                            <h1 className='float-left text-xl font-extrabold'>Equipment maintenance Shop</h1>
-                            <button className='float-right' onClick={()=> setOpenActionModal(false)}><FontAwesomeIcon className=' text-red-500 w-7 h-7' icon={faXmarkCircle}/></button>
+                            <h1 className='float-left text-xl font-extrabold'>Approve equipment maintenance</h1>
+                            <button className='float-right' onClick={()=> setOpenApprovalsModal(false)}><FontAwesomeIcon className=' text-red-500 w-7 h-7' icon={faXmarkCircle}/></button>
                         </div>
                         
                         <div className='w-full m5'>
@@ -32,7 +32,7 @@ function ApprovalsModal({setOpenActionModal}) {
                                     </div>
         
                                     <div className='w-full md:w-1/1 px-3'>
-                                        <button className='w-full rounded-md bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-5 my-3' type='text' placeholder='E'>Add</button>
+                                        <button className='w-full rounded-md bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-5 my-3' type='text'>Add</button>
                                     </div>
                                     <p>{remark}</p>
         

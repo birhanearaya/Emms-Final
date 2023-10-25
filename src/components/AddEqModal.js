@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-function AddEqModal({setOpenEqpmntModal}) {
+function AddEqModal({setOpenAddEqpmntModal}) {
         const [ opName, setOpName] = useState('');
         const [ oPType, setOpType] = useState('');
         const [ equipment, setEquipmet] = useState('');
@@ -24,8 +24,8 @@ function AddEqModal({setOpenEqpmntModal}) {
                     <div className='w-full h-full rounded-xl'>
                         {/* Modal Header */}
                         <div className='m5 w-full h-10 border-b'>
-                            <h1 className='float-left text-xl font-extrabold'>Add new equipment maintenance registration</h1>
-                            <button className='float-right' onClick={()=> setOpenEqpmntModal(false)}><FontAwesomeIcon className=' text-red-500 w-7 h-7' icon={faXmarkCircle}/></button>
+                            <h1 className='float-left text-xl font-extrabold'>Add new equipment</h1>
+                            <button className='float-right' onClick={()=> setOpenAddEqpmntModal(false)}><FontAwesomeIcon className=' text-red-500 w-7 h-7' icon={faXmarkCircle}/></button>
                         </div>
                         
                         <div className='w-full m5'>
