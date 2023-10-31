@@ -1,5 +1,5 @@
 import '../index.css'
-import {AboutERPCard, AboutTRCECard, TotalRegisteredCard, TotalDone, InRepair, Rejected, InQueue} from "../components/Cards"
+import {AboutERPCard, AboutTRCECard, TotalRegisteredCard, TotalDone, InRepair, InQueue} from "../components/Cards"
 export const General = () => {
   return (
     <>
@@ -14,7 +14,6 @@ export const General = () => {
         </div>
         <div className="flex-row inline-flex">
             <InRepair/>
-            <Rejected/>
             <InQueue/>
         </div>
     </div>

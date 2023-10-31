@@ -1,11 +1,10 @@
 import '../index.css'
-import { Table } from '../components/Table'
-import { TableTitleAndApproveRejectButtons } from '../components/TableActionButtons';
+import { EqTable } from '../components/EqTable'
 export const Approvals = () => {
   return <>
   <div className="PageContainer">
-    <TableTitleAndApproveRejectButtons/>
-    <Table/>  
+    <h1 className='float-left text-xl font-extrabold'>WOF Approvals</h1>
+    <EqTable/>  
   </div>
 </>
 };

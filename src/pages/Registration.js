@@ -1,5 +1,5 @@
 import '../index.css'
-import { Table } from '../components/Table'
+import { EqTable } from '../components/EqTable'
 import { TableTitleAndAddButton } from "../components/TableActionButtons";
 
 export const Registration = () => {
@@ -7,7 +7,7 @@ export const Registration = () => {
     <>
       <div className='PageContainer'>
         <TableTitleAndAddButton/>
-        <Table/>  
+        <EqTable/>  
       </div>
     </>
 

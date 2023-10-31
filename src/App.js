@@ -4,23 +4,39 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { General } from "./pages/General";
 import { Registration } from "./pages/Registration";
 import { Approvals } from "./pages/Approvals";
-import { Repair } from "./pages/Repair";
-import { Login } from "./pages/Login";
+import { Users } from "./pages/Users";
+import { Login } from "./pages/Login"
+import { Signup } from "./pages/Signup"
 import { Page404 } from "./pages/Page404";
+import { useEffect, useState } from "react";
+
+
 
 function App() {
+const [userLogedIn,setUserLogedIn]=useState(false)
+
+useEffect(()=>{
+setUserLogedIn(localStorage.getItem("token"))
+},[])
   return (
     <div className="App">
       <Router>
-      <Sidebar/>
+      { userLogedIn &&(<Sidebar/>)}
         <Routes>
-          <Route path="/" element={<General />} />
-          <Route path="/General" element={<General />} />
-          <Route path="/Registration" element={<Registration />} />
-          <Route path="/Approvals" element={<Approvals />} />
-          <Route path="/Repair" element={<Repair />} />
+       
+
+          <Route path="/" element={userLogedIn ? <General />: <Login/>} />
+          <Route path="/General" element={userLogedIn ? <General />: <Login/>  } />
+          <Route path="/Registration" element={userLogedIn ? <Registration />: <Login/>  } />
+          <Route path="/Approvals" element={userLogedIn ? <Approvals />: <Login/>  } />
+          <Route path="/Users" element={userLogedIn ? <Users />: <Login/>  } />
           <Route path="/Login" element={<Login />} />
-          <Route path="*" element={<Page404 />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="*" element={userLogedIn ? <Page404 />: <Login/>  } />
+
+
+
+
         </Routes>
       </Router>
     </div>

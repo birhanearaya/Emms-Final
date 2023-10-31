@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
+// import { faUser } from "@fortawesome/free-solid-svg-icons"; 
+
 
 export const SidebarData = [
   {
@@ -21,9 +22,10 @@ export const SidebarData = [
     icon: <FontAwesomeIcon icon= {faCheckCircle}/>,
     link: "/Approvals",
   },
-  {
-    title: "Equipment Repair",
-    icon: <FontAwesomeIcon icon= {faScrewdriverWrench}/>,
-    link: "/Repair",
-  },
+  
+  // {
+  //   title: "Users",
+  //   icon: <FontAwesomeIcon icon= {faUser}/>,
+  //   link: "/Users",
+  // },
 ];
