@@ -1,8 +1,7 @@
 
 export const EqColumns = [
-  
   {
-    Header: "Adminstartor",
+    Header: "Operator",
     accessor: "operatorName",
   },
   {
@@ -18,11 +17,11 @@ export const EqColumns = [
     accessor: "remark",
   },
   {
-    Header: "Inspector",
+    Header: "Inspected by",
     accessor: "inspectorConfirmedId.userName",
   },
   {
-    Header: "Mechanic",
+    Header: "Fixed by",
     accessor: "mechanicConfirmedId.userName",
   },
   {
@@ -33,6 +32,7 @@ export const EqColumns = [
     Header: "Date",
     accessor: "createdAt",
   }
+  
 ] 
 
 //Users
@@ -54,4 +54,53 @@ export const UsersColumn = [
     Header: "Created at",
     accessor: "createdAt",
   }
+] 
+
+export const WOFColumn = [
+  
+  // {
+  //   Header: "Operator",
+  //   accessor: "operatorName",
+  // },
+  // {
+  //   Header: "Operator",
+  //   accessor: "operatorName",
+  // },
+  {
+    Header: "Mechanic",
+    accessor: "mechanicName",
+  },
+  {
+    Header: "Plate",
+    accessor: "plateNumber",
+  },
+  // {
+  //   Header: "Operator Type",
+  //   accessor: "operatorType",
+  // },
+  {
+    Header: "Remark",
+    accessor: "remark",
+  },
+  {
+    Header: "Activity description",
+    accessor: "activityDescription",
+  },
+  // {
+  //   Header: "Inspacted by",
+  //   accessor: "inspectorConfirmedId.userName",
+  // },
+  {
+    Header: "Fixed by",
+    accessor: "emfId.mechanicConfirmedId.userName",
+  },
+  {
+    Header: "Registered at",
+    accessor: "createdAt",
+  },
+  {
+    Header: "Exit date",
+    accessor: "exitDate", 
+  },
+  
 ] 

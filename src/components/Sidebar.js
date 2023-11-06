@@ -7,7 +7,9 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import { faBook } from '@fortawesome/free-solid-svg-icons'
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 const role = localStorage.getItem('role');
 
 
@@ -36,11 +38,10 @@ function Sidebar() {
               
               {role === "eqAdmin" &&(
                 <li
-                
                 className="SidebarItem"
                 id={window.location.pathname === '/Registration' ? "active" : ""}
                 onClick={() => {
-                  window.location.pathname = '/Registration';
+                window.location.pathname = '/Registration';
                 }}
               >
                 <div className="SidebarItemIcon"><FontAwesomeIcon icon= {faPlusCircle}/></div>
@@ -57,11 +58,12 @@ function Sidebar() {
                 }}
               >
                 <div className="SidebarItemIcon"><FontAwesomeIcon icon= {faCheckCircle}/></div>
-                <div className="SidebarItemTitle">WOF-Approvals</div>
+                <div className="SidebarItemTitle">EMF-Approvals</div>
               </li>
               )}
 
-              {role === "mechanic" &&(
+
+                {role === "mechanic" &&(
                 <li
                 
                 className="SidebarItem"
@@ -71,9 +73,25 @@ function Sidebar() {
                 }}
               >
                 <div className="SidebarItemIcon"><FontAwesomeIcon icon= {faWrench}/></div>
-                <div className="SidebarItemTitle">Mechanic</div>
+                <div className="SidebarItemTitle">EMF Approvals</div>
               </li>
               )}
+
+
+
+              <li
+                
+                className="SidebarItem"
+                id={window.location.pathname === '/WOF' ? "active" : ""}
+                onClick={() => {
+                  window.location.pathname = '/WOF';
+                }}
+              >
+                <div className="SidebarItemIcon"><FontAwesomeIcon icon= {faBook}/></div>
+                <div className="SidebarItemTitle">WOF</div>
+              </li>
+            
+              
               
 
               {role === "eqAdmin"&&(
@@ -88,14 +106,31 @@ function Sidebar() {
                   <div className="SidebarItemTitle">Users</div>
                 </li>
               )}
+
+              <li
+                
+                className="mt-[40vh] SidebarItem"
+                id={window.location.pathname === '/Profile' ? "active" : ""}
+                onClick={() => {
+                  window.location.pathname = '/Profile';
+                }}
+              >
+                <div className="SidebarItemIcon"><FontAwesomeIcon icon= {faGear}/></div>
+                <div className="SidebarItemTitle">Profile Settings</div>
+              </li>
         </>
-        <li
-          className="SidebarLogout"
-          onClick={handleLogout}
-        >
-          <FontAwesomeIcon className="SidebarItemIcon" icon= {faSignOut}/>
-          <div className="SidebarItemTitle">Logout</div>
-        </li>
+
+        <div>
+          <li
+            className="SidebarLogout mt-96"
+            onClick={handleLogout}
+            >
+            <FontAwesomeIcon className="SidebarItemIcon" icon= {faSignOut}/>
+            <div className="SidebarItemTitle">Logout</div>
+          </li>
+        </div>
+        
+
       </ul>
     </div>
   );

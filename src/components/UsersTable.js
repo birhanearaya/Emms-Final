@@ -5,12 +5,16 @@ import { UsersColumn } from './Columns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { EditUserModal } from './EditUserModal';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export const UsersTable = () => {
   const [data, setData] = React.useState([]);
   const [openEditUserModal,setOpenEditUserModal]=useState(false)
   const [selectedRowId,setSelectedRowId]=useState()
+  const [searchString, setSearchString] = useState("");
+
 
   React.useEffect(() => {
     async function fetchData() {
@@ -36,6 +40,11 @@ export const UsersTable = () => {
     getTableBodyProps,
     headerGroups,
     page,
+    nextPage,
+    previousPage,
+    canPreviousPage,
+    canNextPage,
+    // pageOptions,
     state,
     prepareRow,
   } = useTable({ data, columns }, usePagination);
@@ -65,14 +74,14 @@ export const UsersTable = () => {
 const handleDelete = async (selectedRowId) => {
     try {     
       const tk_value = localStorage.getItem('token');
-      const response = await axios({
+      await axios({
         method: 'DELETE',
         url: `http://localhost:5002/api/users/${selectedRowId}`,
         headers: {
         authorization: 'Bearer ' + tk_value,
         },
     });
-      console.log(response.data); // Handle the response from the server
+      // console.log(response.data); // Handle the response from the server
       // if successful -> 
       window.location.pathname = "/Users"
 
@@ -83,12 +92,49 @@ const handleDelete = async (selectedRowId) => {
       // setErrorMessage(error.response.data.message)
     }
   };
-  return (
-    <>
-      <div className="rounded-lg pr-10 pl-10 mt-10 bg-white p-3 text-gray-800 h-screen w-full">
-        {/* Title and add new EM section */}
-        {/* Table */}
-        <div className="h-[820px] w-[1500px]">
+
+  const handleSearch=(searchString)=>{
+  async function fetchData() {
+  const tk_value = localStorage.getItem('token');
+
+      const response = await axios({
+        method: 'GET',
+        url: `http://localhost:5002/api/users/search?q=${searchString}`,
+        headers: {
+          authorization: 'Bearer ' + tk_value,
+        },
+      });
+      
+      setData(response.data.doc);
+    }
+  fetchData();
+  // console.log(data)
+  // console.log(searchString)
+}
+  return (    
+      <>
+
+            {/* Search */}
+        <div className="">
+            <div>
+              <div className=' w-full flex flex-row'>
+                <input className='focus:border-[#3199F3] border-4 border-gray-300 mt-10 p-4 mr-5 mb-3 w-2/5 rounded-xl text-gray-700 text-xl pl-10' placeholder="Search" type="text" value={searchString} onChange={(e) => setSearchString(e.target.value)}></input>
+                <button className='hover:bg-[#3199F3] hover:text-white text-[#3199F3] border-2 border-[#3199F3]  mr-96 mt-10 mb-3 p-4 w-1/5 rounded-xl text-xl' type="button" onClick={()=>handleSearch(searchString)}>
+                  <FontAwesomeIcon className="pr-3 " icon= {faSearch}/>Search
+                </button>
+
+                  <button className='hover:bg-[#006BC7] bg-[#3199F3] mt-10 mb-3 py-4 w-1/5 rounded-xl text-white text-xl' onClick={() => {
+                    window.location.pathname = "/Signup"
+                    }}>
+                    <FontAwesomeIcon className="pr-3 " icon= {faPlusCircle}/> Add User
+                  </button>
+              </div>
+            </div>
+        </div>
+
+    <div className="rounded-lg pr-10 pl-10 bg-white mt-10 p-3 text-gray-800 h-screen w-[80vw]">
+      <div className="h-auto">
+        <div className="max-h-[75vh] overflow-auto">
           <table className='pt-10 border-t w-full' {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (
@@ -147,6 +193,15 @@ const handleDelete = async (selectedRowId) => {
             </tbody>
           </table>     
         </div>
+      </div>
+      <div className="float-right mt-10">
+                <button className="mr-5 outline outline-offset-2 outline-gray-300 text-gray-600 font-bold px-4 rounded-md" onClick={() => previousPage()} disabled={!canPreviousPage}>
+                  Previous
+                </button>
+                <button className="outline outline-offset-2 outline-gray-300 text-gray-600 font-bold px-4 rounded-md disabled:text-gray-50" onClick={() => nextPage()} disabled={!canNextPage}>
+                  Next
+                </button>
+              </div>
       </div>
     </>
   );

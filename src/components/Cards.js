@@ -64,7 +64,6 @@ export const TotalRegisteredCard = () => {
           authorization: 'Bearer ' + tk_value,
         },
       })
-      console.log(response)
       setEmfCOunt(response.data.result);
       // TotalData = response.data.results
   }
@@ -106,7 +105,6 @@ export const TotalDone = () => {
           authorization: 'Bearer ' + tk_value,
         },
       })
-      console.log(response)
       setEmfDoneCOunt(response.data.result);
       // TotalData = response.data.results
   }
@@ -147,7 +145,6 @@ export const InRepair = () => {
           authorization: 'Bearer ' + tk_value,
         },
       })
-      console.log(response)
       setEmfRepairCOunt(response.data.result);
       // TotalData = response.data.results
   }
@@ -186,7 +183,6 @@ export const InQueue = () => {
           authorization: 'Bearer ' + tk_value,
         },
       })
-      console.log(response)
       setEmfQueueCount(response.data.result);
       // TotalData = response.data.results
   }

@@ -13,7 +13,7 @@ function AddEqModal({setOpenAddEqpmntModal}) {
             e.preventDefault()
             try {
             const tk_value = localStorage.getItem('token'); 
-    const role = localStorage.getItem('role'); 
+            const role = localStorage.getItem('role'); 
             const response = await axios({
                 method: 'POST',
                 url: `http://localhost:5002/api/equipmentMaintenanceForm/${role}`,
@@ -27,18 +27,18 @@ function AddEqModal({setOpenAddEqpmntModal}) {
                 authorization: 'Bearer ' + tk_value,
             },
         })
-      if(response.data.status === 'success'){
+if(response.data.status === 'success'){
         window.location.pathname = "/Registration"
 
-      }
+    }
     } catch (error) {
-      console.log(error.response.data.error.statusCode, error.response.data.message); 
+    console.log(error.response.data.error.statusCode, error.response.data.message); 
       // Handle any errors that occur during the request
     }
         }
         return (
             // Overlay
-            <div className='w-[1650px] h-screen fixed left-[280px] top-0 flex justify-center items-center bg-black bg-opacity-50'>
+            <div className='w-[90vw] h-screen fixed left-[280px] top-0 flex justify-center items-center bg-black bg-opacity-50'>
                 {/* Modal background */}
                 <div className='w-3/5 py-6 px-5  border-b rounded-2xl bg-white shadow-lg'>
                     {/* Model content container */}
@@ -51,7 +51,7 @@ function AddEqModal({setOpenAddEqpmntModal}) {
                         
                         <div className='w-full m5'>
                             {/* Form */}
-                            <form onSubmit={handleSubmit} className='p-5'>
+                            <form className='p-5'>
         
                                 <div className='w-full flex flex-wrap'>
                                     <div className='w-full md:w-1/3 px-3 mb-6 md:mb-0'>
@@ -79,7 +79,7 @@ function AddEqModal({setOpenAddEqpmntModal}) {
                                     </div>
         
                                     <div className='w-full md:w-1/1 px-3'>
-                                        <button className='w-full rounded-md bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-5 my-3' type='text'>Add</button>
+                                        <button className='w-full rounded-md bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-5 my-3' type='submit' onClick = {handleSubmit} >Add</button>
                                     </div>
         
                                 </div>
